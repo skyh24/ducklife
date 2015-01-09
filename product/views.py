@@ -85,12 +85,12 @@ def add_product(request):
         number = request.POST.get('number', None)
         del request.session['cart']
         cart = get_cart(request)
-	print "add_product", cart
+        print "add_product+++", cart
         if productID:
             product = Product.objects.get(uid = productID)
             cart.add(product,number)
             request.session['cart'] = cart
-            print "yess+++",  request.session['cart']
+            print "yes+++",  request.session['cart']
             success = True
     return HttpResponse(json.dumps({
         'success' : success,
